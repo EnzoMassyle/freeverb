@@ -16,30 +16,30 @@ class revmodel
 public:
 					revmodel();
 			void	mute();
-			void	processmix(float *inputL, float *inputR, float *outputL, float *outputR, long numsamples, int skip);
-			void	processreplace(float *inputL, float *inputR, float *outputL, float *outputR, long numsamples, int skip);
-			void	setroomsize(float value);
-			float	getroomsize();
-			void	setdamp(float value);
-			float	getdamp();
-			void	setwet(float value);
-			float	getwet();
-			void	setdry(float value);
-			float	getdry();
-			void	setwidth(float value);
-			float	getwidth();
-			void	setmode(float value);
-			float	getmode();
+			void	processmix(double *inputL, double *inputR, double *outputL, double *outputR, long numsamples, int skip);
+			void	processreplace(double *inputL, double *inputR, double *outputL, double *outputR, long numsamples, int skip);
+			void	setroomsize(double value);
+			double	getroomsize();
+			void	setdamp(double value);
+			double	getdamp();
+			void	setwet(double value);
+			double	getwet();
+			void	setdry(double value);
+			double	getdry();
+			void	setwidth(double value);
+			double	getwidth();
+			void	setmode(double value);
+			double	getmode();
 private:
 			void	update();
 private:
-	float	gain;
-	float	roomsize,roomsize1;
-	float	damp,damp1;
-	float	wet,wet1,wet2;
-	float	dry;
-	float	width;
-	float	mode;
+	double	gain;
+	double	roomsize,roomsize1;
+	double	damp,damp1;
+	double	wet,wet1,wet2;
+	double	dry;
+	double	width;
+	double	mode;
 
 	// The following are all declared inline 
 	// to remove the need for dynamic allocation
@@ -54,32 +54,32 @@ private:
 	allpass	allpassR[numallpasses];
 
 	// Buffers for the combs
-	float	bufcombL1[combtuningL1];
-	float	bufcombR1[combtuningR1];
-	float	bufcombL2[combtuningL2];
-	float	bufcombR2[combtuningR2];
-	float	bufcombL3[combtuningL3];
-	float	bufcombR3[combtuningR3];
-	float	bufcombL4[combtuningL4];
-	float	bufcombR4[combtuningR4];
-	float	bufcombL5[combtuningL5];
-	float	bufcombR5[combtuningR5];
-	float	bufcombL6[combtuningL6];
-	float	bufcombR6[combtuningR6];
-	float	bufcombL7[combtuningL7];
-	float	bufcombR7[combtuningR7];
-	float	bufcombL8[combtuningL8];
-	float	bufcombR8[combtuningR8];
+	double	bufcombL1[combtuningL1];
+	double	bufcombR1[combtuningR1];
+	double	bufcombL2[combtuningL2];
+	double	bufcombR2[combtuningR2];
+	double	bufcombL3[combtuningL3];
+	double	bufcombR3[combtuningR3];
+	double	bufcombL4[combtuningL4];
+	double	bufcombR4[combtuningR4];
+	double	bufcombL5[combtuningL5];
+	double	bufcombR5[combtuningR5];
+	double	bufcombL6[combtuningL6];
+	double	bufcombR6[combtuningR6];
+	double	bufcombL7[combtuningL7];
+	double	bufcombR7[combtuningR7];
+	double	bufcombL8[combtuningL8];
+	double	bufcombR8[combtuningR8];
 
 	// Buffers for the allpasses
-	float	bufallpassL1[allpasstuningL1];
-	float	bufallpassR1[allpasstuningR1];
-	float	bufallpassL2[allpasstuningL2];
-	float	bufallpassR2[allpasstuningR2];
-	float	bufallpassL3[allpasstuningL3];
-	float	bufallpassR3[allpasstuningR3];
-	float	bufallpassL4[allpasstuningL4];
-	float	bufallpassR4[allpasstuningR4];
+	double	bufallpassL1[allpasstuningL1];
+	double	bufallpassR1[allpasstuningR1];
+	double	bufallpassL2[allpasstuningL2];
+	double	bufallpassR2[allpasstuningR2];
+	double	bufallpassL3[allpasstuningL3];
+	double	bufallpassR3[allpasstuningR3];
+	double	bufallpassL4[allpasstuningL4];
+	double	bufallpassR4[allpasstuningR4];
 };
 
 #endif//_revmodel_

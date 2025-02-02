@@ -13,19 +13,19 @@ class comb
 {
 public:
 					comb();
-			void	setbuffer(float *buf, int size);
-	inline  float	process(float inp);
+			void	setbuffer(double *buf, int size);
+	inline  double	process(double inp);
 			void	mute();
-			void	setdamp(float val);
-			float	getdamp();
-			void	setfeedback(float val);
-			float	getfeedback();
+			void	setdamp(double val);
+			double	getdamp();
+			void	setfeedback(double val);
+			double	getfeedback();
 private:
-	float	feedback;
-	float	filterstore;
-	float	damp1;
-	float	damp2;
-	float	*buffer;
+	double	feedback;
+	double	filterstore;
+	double	damp1;
+	double	damp2;
+	double	*buffer;
 	int		bufsize;
 	int		bufidx;
 };
@@ -33,9 +33,9 @@ private:
 
 // Big to inline - but crucial for speed
 
-inline float comb::process(float input)
+inline double comb::process(double input)
 {
-	float output;
+	double output;
 
 	output = buffer[bufidx];
 	undenormalise(output);

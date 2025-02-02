@@ -11,7 +11,7 @@ allpass::allpass()
 	bufidx = 0;
 }
 
-void allpass::setbuffer(float *buf, int size) 
+void allpass::setbuffer(double *buf, int size) 
 {
 	buffer = buf; 
 	bufsize = size;
@@ -23,12 +23,12 @@ void allpass::mute()
 		buffer[i]=0;
 }
 
-void allpass::setfeedback(float val) 
+void allpass::setfeedback(double val) 
 {
 	feedback = val;
 }
 
-float allpass::getfeedback() 
+double allpass::getfeedback() 
 {
 	return feedback;
 }

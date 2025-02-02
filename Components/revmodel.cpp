@@ -64,16 +64,16 @@ void revmodel::mute()
 		combL[i].mute();
 		combR[i].mute();
 	}
-	for (i=0;i<numallpasses;i++)
+	for (int i=0;i<numallpasses;i++)
 	{
 		allpassL[i].mute();
 		allpassR[i].mute();
 	}
 }
 
-void revmodel::processreplace(float *inputL, float *inputR, float *outputL, float *outputR, long numsamples, int skip)
+void revmodel::processreplace(double *inputL, double *inputR, double *outputL, double *outputR, long numsamples, int skip)
 {
-	float outL,outR,input;
+	double outL,outR,input;
 
 	while(numsamples-- > 0)
 	{
@@ -88,7 +88,7 @@ void revmodel::processreplace(float *inputL, float *inputR, float *outputL, floa
 		}
 
 		// Feed through allpasses in series
-		for(i=0; i<numallpasses; i++)
+		for(int i=0; i<numallpasses; i++)
 		{
 			outL = allpassL[i].process(outL);
 			outR = allpassR[i].process(outR);
@@ -106,9 +106,9 @@ void revmodel::processreplace(float *inputL, float *inputR, float *outputL, floa
 	}
 }
 
-void revmodel::processmix(float *inputL, float *inputR, float *outputL, float *outputR, long numsamples, int skip)
+void revmodel::processmix(double *inputL, double *inputR, double *outputL, double *outputR, long numsamples, int skip)
 {
-	float outL,outR,input;
+	double outL,outR,input;
 
 	while(numsamples-- > 0)
 	{
@@ -123,7 +123,7 @@ void revmodel::processmix(float *inputL, float *inputR, float *outputL, float *o
 		}
 
 		// Feed through allpasses in series
-		for(i=0; i<numallpasses; i++)
+		for(int i=0; i<numallpasses; i++)
 		{
 			outL = allpassL[i].process(outL);
 			outR = allpassR[i].process(outR);
@@ -181,67 +181,67 @@ void revmodel::update()
 // because as you develop the reverb model, you may
 // wish to take dynamic action when they are called.
 
-void revmodel::setroomsize(float value)
+void revmodel::setroomsize(double value)
 {
 	roomsize = (value*scaleroom) + offsetroom;
 	update();
 }
 
-float revmodel::getroomsize()
+double revmodel::getroomsize()
 {
 	return (roomsize-offsetroom)/scaleroom;
 }
 
-void revmodel::setdamp(float value)
+void revmodel::setdamp(double value)
 {
 	damp = value*scaledamp;
 	update();
 }
 
-float revmodel::getdamp()
+double revmodel::getdamp()
 {
 	return damp/scaledamp;
 }
 
-void revmodel::setwet(float value)
+void revmodel::setwet(double value)
 {
 	wet = value*scalewet;
 	update();
 }
 
-float revmodel::getwet()
+double revmodel::getwet()
 {
 	return wet/scalewet;
 }
 
-void revmodel::setdry(float value)
+void revmodel::setdry(double value)
 {
 	dry = value*scaledry;
 }
 
-float revmodel::getdry()
+double revmodel::getdry()
 {
 	return dry/scaledry;
 }
 
-void revmodel::setwidth(float value)
+void revmodel::setwidth(double value)
 {
 	width = value;
 	update();
 }
 
-float revmodel::getwidth()
+double revmodel::getwidth()
 {
 	return width;
 }
 
-void revmodel::setmode(float value)
+void revmodel::setmode(double value)
 {
 	mode = value;
 	update();
 }
 
-float revmodel::getmode()
+double revmodel::getmode()
 {
 	if (mode >= freezemode)
 		return 1;

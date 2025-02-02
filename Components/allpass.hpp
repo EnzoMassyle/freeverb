@@ -12,14 +12,14 @@ class allpass
 {
 public:
 					allpass();
-			void	setbuffer(float *buf, int size);
-	inline  float	process(float inp);
+			void	setbuffer(double *buf, int size);
+	inline  double	process(double inp);
 			void	mute();
-			void	setfeedback(float val);
-			float	getfeedback();
+			void	setfeedback(double val);
+			double	getfeedback();
 // private:
-	float	feedback;
-	float	*buffer;
+	double	feedback;
+	double	*buffer;
 	int		bufsize;
 	int		bufidx;
 };
@@ -27,10 +27,10 @@ public:
 
 // Big to inline - but crucial for speed
 
-inline float allpass::process(float input)
+inline double allpass::process(double input)
 {
-	float output;
-	float bufout;
+	double output;
+	double bufout;
 	
 	bufout = buffer[bufidx];
 	undenormalise(bufout);

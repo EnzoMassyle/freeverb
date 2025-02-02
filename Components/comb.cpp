@@ -12,7 +12,7 @@ comb::comb()
 	bufidx = 0;
 }
 
-void comb::setbuffer(float *buf, int size) 
+void comb::setbuffer(double *buf, int size) 
 {
 	buffer = buf; 
 	bufsize = size;
@@ -24,23 +24,23 @@ void comb::mute()
 		buffer[i]=0;
 }
 
-void comb::setdamp(float val) 
+void comb::setdamp(double val) 
 {
 	damp1 = val; 
 	damp2 = 1-val;
 }
 
-float comb::getdamp() 
+double comb::getdamp() 
 {
 	return damp1;
 }
 
-void comb::setfeedback(float val) 
+void comb::setfeedback(double val) 
 {
 	feedback = val;
 }
 
-float comb::getfeedback() 
+double comb::getfeedback() 
 {
 	return feedback;
 }
